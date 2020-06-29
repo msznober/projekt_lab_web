@@ -1,0 +1,918 @@
+@import url('https://fonts.googleapis.com/css?family=Marcellus+SC&display=swap');
+
+body {
+  font-family: 'Marcellus SC', serif;
+  overflow-X: hidden;
+}
+
+button {
+  font-family: 'Marcellus SC', serif;
+}
+
+:root {
+  --headerHeight: 50px;
+}
+
+
+/*Nagłówek*/
+header {
+  width: 100%;
+  height: var(--headerHeight);
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 2;
+  color: white;
+  transition: .5s;
+}
+
+header.active {
+  background-color: black;
+}
+
+header h1 {
+  position: absolute;
+  left: 20px;
+  top: 15px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+header div.menuLogo {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  width: 30px;
+  height: 25px;
+  transition: .5s;
+}
+
+/*Menu desktop*/
+div.desktopMenu {
+  display: none;
+}
+
+
+/**/
+header div.menuLogo.active {
+  transform: rotate(90deg);
+}
+
+header div.menuLogo span {
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  background-color: white;
+  left: 0;
+  transition: top .2s .2s, bottom .2s .2s, opacity .2s .2s, transform .2s .4s;
+  border-radius: 30%;
+}
+
+header div.menuLogo span:nth-of-type(1) {
+  top: 0;
+}
+
+header div.menuLogo.active span:nth-of-type(1) {
+  top: calc(50% - 2.5px);
+  transform: rotate(45deg);
+}
+
+header div.menuLogo span:nth-of-type(2) {
+  top: calc(50% - 2.5px);
+}
+
+header div.menuLogo.active span:nth-of-type(2) {
+  opacity: 0;
+}
+
+header div.menuLogo span:nth-of-type(3) {
+  bottom: 0;
+}
+
+header div.menuLogo.active span:nth-of-type(3) {
+  bottom: calc(50% - 2.5px);
+  transform: rotate(-45deg);
+}
+
+/*Menu mobilne*/
+nav.mobile {
+  position: fixed;
+  top: var(--headerHeight);
+  width: 100%;
+  height: 300px;
+  z-index: 1;
+  transform: rotate(-90deg);
+  transform-origin: top right;
+  transition: 0.5s;
+}
+
+nav.mobile.active {
+  transform: rotate(0);
+}
+
+nav.mobile div {
+  width: 100%;
+  height: 20%;
+  background-color: white;
+  text-align: center;
+  line-height: calc(300px / 5);
+  border-bottom: 1px solid black;
+}
+
+nav.mobile div:nth-last-of-type(1) {
+  border-radius: 0 0 30px 30px;
+}
+
+nav.mobile div p {
+  font-size: 24px;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+nav.mobile div p a {
+  text-decoration: none;
+  color: black;
+  display: inline-block;
+  width: 100%;
+}
+
+
+/*Sekcja tytułowa*/
+section.main {
+  width: 100%;
+  height: 100vh;
+  background-image: url(../media/river_and_mountains.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+section.main div.arrow {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+section.main div.arrow i {
+  font-size: 38px;
+  color: white;
+  opacity: 1;
+  animation: disappearArrow 3s linear infinite;
+}
+
+@keyframes disappearArrow {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+section.main div.inviteText {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  text-align: center;
+}
+
+section.main div.inviteText::after {
+  content: "";
+}
+
+section.main div.inviteText h2,
+section.main div.inviteText p {
+  color: white;
+  padding: 5px;
+}
+
+section.main div.inviteText h2 {
+  font-size: 28px;
+}
+
+section.main div.inviteText p {
+  font-size: 18px;
+}
+
+/*Sekcja o nas*/
+section.aboutUs {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+  margin-top: 15px;
+}
+
+section.aboutUs>div {
+  width: 250px;
+  height: 200px;
+  text-align: center;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #e9e9e9;
+  margin-bottom: 15px;
+  transition: .5s;
+}
+
+section.aboutUs>div:hover {
+  background-color: #bdbebd;
+  cursor: pointer;
+}
+
+section.aboutUs>div:hover i {
+  transform: rotate(360deg);
+}
+
+section.aboutUs>div p.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+section.aboutUs>div i {
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: #008080;
+  transition: .5s;
+}
+
+section.aboutUs>div p.description {
+  font-size: 18px;
+  font-weight: light;
+}
+
+/*Sekcja video-baner*/
+section.banner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+
+section.banner p {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 26px;
+  animation: switchText 6s infinite linear;
+  opacity: 0;
+}
+
+section.banner p:nth-of-type(2) {
+  animation-delay: 2s;
+}
+
+section.banner p:nth-of-type(3) {
+  animation-delay: 4s;
+}
+
+@keyframes switchText {
+  0% {
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  33.33% {
+    opacity: 1;
+  }
+
+  38.33% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+/*Sekcja popularne kierunki*/
+
+section.popularDestinations {
+  width: 100%;
+  padding-top: 15px;
+}
+
+section.popularDestinations h2 {
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+section.popularDestinations div.travelsWrapper {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+}
+
+div.travelsWrapper>div {
+  width: 280px;
+  height: 400px;
+  margin-bottom: 15px;
+  background-size: cover;
+  text-align: center;
+}
+
+div.travelsWrapper>div h3 {
+  color: white;
+  font-size: 36px;
+  font-weight: bold;
+  margin-top: 60%;
+}
+
+div.travelsWrapper>div p {
+  color: white;
+  font-size: 18px;
+  padding: 10px 0 20px;
+}
+
+.s_img {
+  display: none;
+}
+
+
+div.firstTravel {
+  background-image: url("../media/malediwy.jpg");
+}
+
+div.secondTravel {
+  background-image: url("../media/santorini.jpg");
+}
+
+div.thirdTravel {
+  background-image: url("../media/wieza_eiffla.jpg");
+}
+
+/*Sekcja oferta miesiąca*/
+
+section.monthlyOffer {
+  width: 100%;
+  margin-top: 15px;
+  position: relative;
+  text-align: center;
+}
+
+section.monthlyOffer img {
+  width: 100%;
+}
+
+section.monthlyOffer p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 24px;
+  width: 80%;
+}
+
+section.monthlyOffer p span {
+  font-size: 18px;
+}
+
+/*Stopka*/
+footer {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer p {
+  font-size: 14px;
+}
+
+/*Podstrona wakacje*/
+section.second_main {
+  background-image: url(../media/morze.jpg);
+  margin-bottom: 15px;
+}
+
+section.destinations {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+}
+
+section.destinations div.trip {
+  position: relative;
+  width: 300px;
+  height: 450px;
+  margin-bottom: 15px;
+  background-size: cover;
+}
+
+section.destinations div.trip div.info {
+  width: 100%;
+  height: 70px;
+  background-color: transparent;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  text-align: center;
+  color: white;
+}
+
+section.destinations div.trip div.info h3 {
+  font-weight: bold;
+  font-size: 26px;
+}
+
+section.destinations div.trip div.info p {
+  font-size: 22px;
+}
+
+section.destinations div.trip:nth-of-type(1) {
+  background-image: url(../media/fuerteventura.jpg);
+}
+
+section.destinations div.trip:nth-of-type(2) {
+  background-image: url(../media/kreta.jpg);
+}
+
+section.destinations div.trip:nth-of-type(3) {
+  background-image: url(../media/madera.jpg);
+}
+
+section.destinations div.trip:nth-of-type(4) {
+  background-image: url(../media/teneryfa.jpg);
+}
+
+section.destinations div.trip:nth-of-type(5) {
+  background-image: url(../media/jamajka.jpg);
+}
+
+section.destinations div.trip:nth-of-type(6) {
+  background-image: url(../media/chorwacja.jpg);
+}
+
+/*Podstrona hotele*/
+section.third_main {
+  background-image: url(../media/hotel.jpg);
+  margin-bottom: 15px;
+}
+
+section.hotels {
+  width: 100%;
+  text-align: center;
+}
+
+section.hotels h3.hotelsTitle {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+div.hotels_wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+}
+
+div.hotel {
+  position: relative;
+  width: 300px;
+  height: 450px;
+  margin-bottom: 15px;
+  background-size: cover;
+}
+
+div.hotelInfo {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  text-align: center;
+  color: white;
+}
+
+div.hotel:nth-of-type(1) {
+  background-image: url(../media/hotel_lv.jpg);
+}
+
+div.hotel:nth-of-type(2) {
+  background-image: url(../media/hotel_barcelona.jpg);
+}
+
+div.hotel:nth-of-type(3) {
+  background-image: url(../media/hotel_sheraton.jpg);
+}
+
+section.hotels div.hotel div.hotelInfo h3 {
+  font-weight: bold;
+  font-size: 26px;
+  color: white;
+}
+
+section.hotels div.hotel div.hotelInfo p {
+  font-size: 22px;
+  color: white;
+}
+
+/*Podstrona loty*/
+section.fourth_main {
+  background-image: url(../media/flights.jpg);
+  background-position: center;
+  margin-bottom: 15px;
+}
+
+section.flights {
+  width: 100%;
+  text-align: center;
+}
+
+.flights_image {
+  height: 250px;
+  margin-top: 50px;
+}
+
+
+div.flights_wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+}
+
+div.adv {
+  width: 350px;
+  height: 450px;
+}
+
+div.advantages h1 {
+  font-size: 36px;
+}
+
+div.advantages h2 {
+  font-size: 28px;
+  padding: 10px;
+}
+
+div.third_adv {
+  padding-bottom: 50px;
+}
+
+/*Podstrona ToDo*/
+section.fifth_main {
+  background-image: url(../media/plan_section.jpg);
+  background-size: cover;
+}
+
+div.todo_wrap {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 150px;
+  width: 300px;
+  padding: 10px;
+  text-align: center;
+}
+
+div.todo_wrap h1 {
+  color: white;
+  font-size: 20px;
+}
+
+div.input_wrap {
+  margin-top: 10px;
+}
+
+input.input {
+  font-family: 'Marcellus SC', serif;
+  text-align: center;
+  border-radius: 10px;
+  border: 2px solid black;
+  color: black;
+  padding: 5px;
+}
+
+input.input::placeholder {
+  color: black;
+}
+
+button.addButton {
+  border-radius: 10px;
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  cursor: pointer;
+  padding: 5px;
+}
+
+div.list_wrap {
+  margin-top: 10px;
+}
+
+div.item {
+  padding: 5px;
+  margin-bottom: 5px;
+  border-bottom: 2px solid white;
+}
+
+.item_input {
+  background: none;
+  outline: none;
+  color: white;
+  font-weight: bold;
+  border: none;
+  font-family: 'Marcellus SC', serif;
+  width: 50%;
+}
+
+.deleteButton {
+  background: none;
+  outline: none;
+  color: red;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.editButton {
+  background: none;
+  outline: none;
+  color: lime;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+
+/*Media*/
+
+@media (min-width: 374px) {
+  section.aboutUs>div {
+    width: 300px;
+  }
+
+  div.travelsWrapper>div {
+    width: 320px;
+  }
+
+  section.destinations div.trip {
+    width: 320px;
+  }
+
+  div.hotel {
+    width: 320px;
+  }
+}
+
+@media (min-width: 767px) {
+  section.main div.inviteText h2 {
+    font-size: 40px;
+  }
+
+  section.main div.inviteText p {
+    font-size: 28px;
+  }
+
+  section.aboutUs>div {
+    width: 340px;
+  }
+
+  section.aboutUs>div p.title {
+    font-size: 28px;
+  }
+
+  section.aboutUs>div i {
+    font-size: 36px;
+  }
+
+  section.aboutUs>div p.description {
+    font-size: 22px;
+  }
+
+  section.banner p {
+    font-size: 36px;
+  }
+
+  section.popularDestinations h2 {
+    font-size: 34px;
+  }
+
+  div.travelsWrapper>div {
+    width: 320px;
+  }
+
+  div.travelsWrapper>div h3 {
+    font-size: 40px;
+  }
+
+  div.travelsWrapper>div p {
+    font-size: 22px;
+  }
+
+  section.monthlyOffer p {
+    font-size: 32px;
+  }
+
+  section.monthlyOffer p span {
+    font-size: 22px;
+  }
+
+  section.destinations div.trip {
+    width: 340px;
+  }
+
+  section.destinations div.trip div.info h3 {
+    font-size: 36px;
+  }
+
+  section.destinations div.trip div.info p {
+    font-size: 24px;
+  }
+
+  section.hotels h3.hotelsTitle {
+    font-size: 36px;
+  }
+
+  div.hotel {
+    width: 340px;
+  }
+
+  section.hotels div.hotel div.hotelInfo h3 {
+    font-size: 36px;
+  }
+
+  section.hotels div.hotel div.hotelInfo p {
+    font-size: 24px;
+  }
+
+  div.advantages h2 {
+    font-size: 32px;
+  }
+
+  div.advantages p {
+    font-size: 22px;
+  }
+
+  header {
+    height: 70px;
+  }
+
+  header h1 {
+    top: 24px;
+  }
+
+  header div.menuLogo {
+    top: 24px;
+  }
+
+  nav.mobile {
+    top: 70px;
+  }
+
+  div.todo_wrap {
+    width: 500px;
+  }
+
+  div.todo_wrap h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  input.input {
+    padding: 10px;
+    font-size: 20px;
+  }
+
+  button.addButton {
+    padding: 10px;
+  }
+
+  div.item {
+    padding: 10px;
+  }
+
+  .item_input {
+    font-size: 24px;
+  }
+
+  .deleteButton {
+    font-size: 24px;
+  }
+
+  .editButton {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  header {
+    background-color: white;
+    color: black;
+  }
+
+  div.menuLogo,
+  nav.mobile {
+    display: none;
+  }
+
+  div.desktopMenu {
+    width: 70%;
+    height: 40px;
+    position: absolute;
+    top: 15px;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  ul,
+  li {
+    list-style: none;
+    float: left;
+    padding: 10px;
+  }
+
+  li a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+  }
+
+  li a img {
+    width: 20px;
+    padding-right: 5px;
+    fill: white;
+  }
+
+  li a:hover {
+    color: green;
+  }
+
+  a.green {
+    color: green;
+  }
+
+  section.monthlyOffer img {
+    height: 500px;
+  }
+
+  .f_img {
+    display: none;
+  }
+
+  .s_img {
+    display: block;
+  }
+}
+
+@media (min-width: 1180px) {
+  section.main {
+    background-image: url(../media/lake_and_boat.jpg);
+  }
+
+  section.second_main {
+    background-image: url(../media/maledives.jpg);
+  }
+
+  section.third_main {
+    background-image: url(../media/hotel_the_palm.jpg);
+    background-position: center;
+  }
+
+  section.fourth_main {
+    background-image: url(../media/airplane_flights.jpg);
+  }
+
+  section.fifth_main {
+    background-image: url(../media/todo_plan_desktop.jpg);
+  }
+}
